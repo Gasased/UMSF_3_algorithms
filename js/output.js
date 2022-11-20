@@ -3,5 +3,5 @@ function Output(n) {
 }
 function OutputSteps(n) {
     document.querySelector('.output').innerHTML += `<div style="color: #8e8e8e;">${n}</div>`.replace(/,/g, ' ')
-    console.log(n);
+    // console.log(n);
 }
