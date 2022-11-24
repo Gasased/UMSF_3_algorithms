@@ -1,6 +1,5 @@
 import random
 
-
 queue = []
 
 for i in range(0, 20):
