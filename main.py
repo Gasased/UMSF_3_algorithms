@@ -9,17 +9,16 @@ for i in range(0, 20):
 print("Initial queue")
 print(queue)
 
-for i in range(0, 20):
+
+def delNegative(queue):
+    for i in range(0, len(queue)):
         if queue[i] < 0:
-           print(queue.pop(i))
-           if i > len(queue)-1:
+            print(queue.pop(i))
+            delNegative(queue)
             break
 
 
-# print("\nElements dequeued from queue")
-# print(queue.pop(0))
-# print(queue.pop(0))
-# print(queue.pop(0))
+delNegative(queue)
 
-print("\nQueue after removing elements")
+print("Result:")
 print(queue)
