@@ -1,38 +1,44 @@
-class Stack:
-    def __init__(self):
-        self.elements = []
+class TreeNode(object):
+    def __init__(self, x):
+         self.val = x
+         self.left = None
+         self.right = None
 
-    def push(self, data):
-        self.elements.append(data)
+def delete_Node(root, key):
+	if not root: 
+		return root
+	if root.val > key: 
+		root.left = delete_Node(root.left, key)
+	elif root.val < key: 
+		root.right= delete_Node(root.right, key)
+	else: 
+		if not root.right:
+			return root.left
+		if not root.left:
+			return root.right
+		temp_val = root.right
+		mini_val = temp_val.val
+		while temp_val.left:
+			temp_val = temp_val.left
+			mini_val = temp_val.val
+		root.right = deleteNode(root.right,root.val)
+	return root
 
-    def pop(self):
-            if self.elements:
-                return self.elements.pop()
-            else:
-                return None
-
-    def peek(self):
-        return self.elements[-1]
-
-stack = Stack()
-
-# testing
-
-stack.push(0)
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push('string0')
-stack.push('string1')
-stack.push('string2')
-stack.push('string3')
-
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
+def preOrder(node): 
+    if not node: 
+        return      
+    print(node.val)
+    preOrder(node.left) 
+    preOrder(node.right)   
+    
+root = TreeNode(5)  
+root.left = TreeNode(3)  
+root.right = TreeNode(6) 
+root.left.left = TreeNode(2)  
+root.left.right = TreeNode(4) 
+root.left.right.left = TreeNode(7)  
+print("Original node:")
+print(preOrder(root))
+result = delete_Node(root, 4)
+print("After deleting specified node:")
+print(preOrder(result))
