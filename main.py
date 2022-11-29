@@ -21,7 +21,7 @@ def delete_Node(root, key):
 		while temp_val.left:
 			temp_val = temp_val.left
 			mini_val = temp_val.val
-		root.right = deleteNode(root.right,root.val)
+		root.right = delete_Node(root.right,root.val)
 	return root
 
 def preOrder(node): 
