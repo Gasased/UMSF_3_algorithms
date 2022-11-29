@@ -1,23 +1,37 @@
-import random
+class Stack:
+    def __init__(self):
+        self.elements = []
 
-queue = []
+    def push(self, data):
+        self.elements.append(data)
 
-for i in range(0, 20):
-    queue.append(random.randint(-50, 50))
+    def pop(self):
+            if self.elements:
+                return self.elements.pop()
+            else:
+                return None
 
-print("Initial queue")
-print(queue)
+    def peek(self):
+        return self.elements[-1]
 
-
-def delNegative(queue):
-    for i in range(0, len(queue)):
-        if queue[i] < 0:
-            print(queue.pop(i))
-            delNegative(queue)
-            break
+stack = Stack()
 
 
-delNegative(queue)
+stack.push(0)
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push('string0')
+stack.push('string1')
+stack.push('string2')
+stack.push('string3')
 
-print("Result:")
-print(queue)
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
